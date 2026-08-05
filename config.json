@@ -1,0 +1,91 @@
+{
+  // ============================================================
+  //  RC Plus 虚拟手柄 + 触摸板 配置文件
+  //  ------------------------------------------------------------
+  //  · 支持 // 行注释 和 /* 块注释, 修改后重新运行脚本生效
+  //  · 每个键值后都标注了可选值, 按需修改
+  // ============================================================
+
+  // ---------- 触摸板基本设置 ----------
+  "mode": "relative",
+  // 触摸板光标模式:
+  //   "relative" = 相对滑动 (像笔记本触摸板, 手指滑动移动光标)
+  //   "absolute" = 绝对定位 (手指点在屏上哪里, 光标就到对应位置)
+
+  "touch_width": 1200,
+  // 触摸屏横向分辨率 (像素), 绝对模式映射用
+
+  "touch_height": 1920,
+  // 触摸屏纵向分辨率 (像素)
+
+  "relative_speed": 2.5,
+  // 相对模式光标灵敏度 (倍率): 数值越大, 手指移动同样距离光标动得越远
+
+  "rotation": 90,
+  // 触摸方向旋转 (逆时针角度): 0 / 90 / 180 / 270
+  // 方向不对时改这个数值, 90 = 逆时针旋转 90°
+
+  // ---------- 触摸手势判定 ----------
+  "move_threshold": 10,
+  // 滑动生效阈值 (像素): 按下后位移小于此值视为轻触(点击), 不移动光标
+  // 调大可减少误触, 调小响应更灵敏
+
+  "stabilize_ms": 150,
+  // 按下稳定期 (毫秒): 手指落下后这段时间内忽略坐标跳变, 防止点击时指针乱跳
+
+  "long_press_ms": 500,
+  // 长按判定 (毫秒): 按住超过此时长后移动 = 拖动 (按住左键拖拽, 如拖窗口/滑块)
+
+  "tap_time_ms": 200,
+  // 轻触最长时长 (毫秒): 快于此时长 + 位移小于阈值 = 单击
+
+  "double_tap_gap_ms": 300,
+  // 双击间隔 (毫秒): 单击后此时间内再次按住 = 拖拽启动; 再次轻触 = 双击
+
+  "scroll_speed": 60,
+  // 双指滚动灵敏度: 手指滑动多少像素滚动一格 (越小滚动越快)
+
+  "two_finger_right_click": true,
+  // 双指轻触 (按下后松开, 无移动) 是否触发右键: true / false
+
+  // ---------- 前台应用检测 ----------
+  "foreground_pkg": "com.Touchpad.air",
+  // 前台包名白名单: 仅当遥控器前台运行此应用时, 触摸板功能才生效
+  // 想全局启用就随便填, 或把 enable_foreground_check 设为 false
+
+  "enable_foreground_check": true,
+  // 是否启用前台包名检测: true / false
+
+  "foreground_check_interval": 3,
+  // 前台包名轮询间隔 (秒)
+
+  // ---------- F1-F6 物理按键自定义映射 ----------
+  // 每个键可映射为 "gamepad"(手柄按钮) 或 "keyboard"(键盘按键)
+  //
+  // gamepad 可用按钮:
+  //   A B X Y | LB RB | BACK START GUIDE
+  //   DPAD_UP DPAD_DOWN DPAD_LEFT DPAD_RIGHT
+  //   L3 R3 (摇杆下压) | LS RS (同 L3/R3)
+  //
+  // keyboard 可用按键:
+  //   字母 A-Z, 数字 0-9, F1-F12
+  //   ENTER TAB ESC SPACE BACKSPACE DELETE HOME END
+  //   PAGEUP PAGEDOWN INSERT CAPSLOCK NUMLOCK
+  //   UP DOWN LEFT RIGHT (方向键)
+  //   SHIFT CTRL ALT WIN (修饰键, 按下期间持续按住)
+  //   符号: - = [ ] \ ; ' , . / `
+  //
+  // 未配置的键使用默认映射: F1=A F2=B F3=X F4=Y F5=LB F6=RB
+  "keys": {
+    "F1": {"type": "gamepad", "button": "A"},   // 例: 映射为手柄 A 键
+    "F2": {"type": "gamepad", "button": "B"},   // 例: 映射为手柄 B 键
+    "F3": {"type": "gamepad", "button": "X"},  // 例: 映射为键盘 CTRL 键
+    "F4": {"type": "gamepad", "button": "Y"},    // 例: 映射为键盘 F5 键
+    "F5": {"type": "keyboard", "key": "F5"},   // 例: 映射为键盘 Tab 键
+    "F6": {"type": "keyboard", "key": "A"}   // 例: 映射为手柄 RB 键
+  },
+//                     ↑         ↑       两个都要改
+  // ---------- 其他 ----------
+  "debug": false
+  // 触摸板调试日志: true / false (排错时开启, 平时关闭)
+}
