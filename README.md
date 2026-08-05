@@ -66,7 +66,7 @@ rc_gamepad.py            ← 解析摇杆/波轮/按键/触摸事件
 | ---- | ---- |
 | 操作系统 | **Windows 10 / 11**（64 位） |
 | Python | **3.8+**（本机测试使用 3.14） |
-| 遥控器 | DJI RC Plus（RM700），已开启 **USB 调试** |
+| 遥控器 | DJI RC Plus（RM700），已开启 **USB 调试** （测试用的是B站DOOM_SIRI的固件）|
 | USB 连接 | 数据线连接电脑，遥控器屏幕弹出授权提示时点击**允许** |
 | 手柄支持 | 虚拟手柄需要安装 **ViGEmBus** 驱动 |
 
@@ -225,7 +225,8 @@ python -c "import vgamepad; print('vgamepad OK')"
 - 双指滚动发生后 100ms 内锁定右键，避免滚动误触右键
 - 单帧坐标跳变超过 200px 的异常帧直接丢弃
 
-> 触摸板**仅在前台运行指定应用时生效**（默认 `com.Touchpad.air`，即遥控器原生「触摸板」App）。在遥控器上打开该 App，即可在电脑上操作。可修改 `config.json` 的 `foreground_pkg` 或关闭 `enable_foreground_check`。
+**使用触摸板功能必须安装项目文件里的com.Touchpad.air**
+> 这只是一个空软件，仅提供防止烧屏和防止误触的功能
 
 ---
 
